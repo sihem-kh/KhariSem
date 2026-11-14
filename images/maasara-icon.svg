@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Maasara Manager">
+  <g>
+    <ellipse cx="22" cy="13" rx="12" ry="4.6" transform="rotate(38 22 13)" fill="#4E6B2B"/>
+    <path d="M13.5 6.3 L31.2 20.2" stroke="#7E9A44" stroke-width="1.1" stroke-linecap="round"/>
+    <ellipse cx="42" cy="13" rx="12" ry="4.6" transform="rotate(-38 42 13)" fill="#4E6B2B"/>
+    <path d="M50.5 6.3 L32.8 20.2" stroke="#7E9A44" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M32 20 L32 25" stroke="#4E6B2B" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <ellipse cx="31" cy="39" rx="14.5" ry="15.5" transform="rotate(-22 31 39)" fill="#ABB554" stroke="#7F8C35" stroke-width="1.6"/>
+  <ellipse cx="25.5" cy="31.5" rx="4.6" ry="2.6" transform="rotate(-30 25.5 31.5)" fill="#CDD47E" opacity=".9"/>
+  <path d="M43 47 C43 47 38.2 53 38.2 56.1 A4.8 4.8 0 0 0 47.8 56.1 C47.8 53 43 47 43 47 Z" fill="#D99A2B"/>
+  <ellipse cx="41.3" cy="55" rx="1.1" ry="1.7" fill="#F2C76A" opacity=".85"/>
+</svg>

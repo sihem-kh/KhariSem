@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KhariSem — Logiciels de gestion et développement web</title>
+<meta name="description" content="KhariSem réunit les logiciels Maasara Manager, Aqua'ERP et Sheetly, ainsi que des services de développement web Angular et NestJS.">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F4EE;--bg2:#EDEAE0;--card:#FFFFFF;--ink:#1E2A28;--muted:#4A5552;--line:#D6D2C4;
+  --teal:#1F6F6A;--teal-dk:#15504C;--olive:#6B7A2A;
+  --ff-title:Fraunces,Georgia,serif;--ff-body:Manrope,system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ff-body);line-height:1.6;color-scheme:light;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}a:hover{color:var(--teal-dk)}
+h1,h2,h3{font-family:var(--ff-title);font-weight:600;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);font-weight:700}
+.ltr{direction:ltr;unicode-bidi:isolate}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:10;background:rgba(246,244,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(214,210,196,.6)}
+.head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;max-width:1120px;margin:0 auto;flex-wrap:wrap}
+.brand{font-family:var(--ff-title);font-size:26px;font-weight:600;color:var(--teal);text-decoration:none}
+.head-right{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+nav{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;font-weight:600}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--teal)}
+.lang{display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:100px;padding:3px;gap:2px}
+.lang button{border:0;background:transparent;font:inherit;font-size:13px;font-weight:700;color:var(--muted);padding:6px 12px;border-radius:100px;cursor:pointer}
+.lang button.active{background:var(--teal);color:#F6F4EE}
+
+/* Boutons */
+.btn{display:inline-block;padding:14px 26px;border-radius:6px;text-decoration:none;font-weight:700;border:1.5px solid var(--teal)}
+.btn.primary{background:var(--teal);color:#F6F4EE}.btn.primary:hover{background:var(--teal-dk);color:#F6F4EE}
+.btn.ghost{color:var(--teal)}.btn.ghost:hover{background:rgba(31,111,106,.06)}
+
+/* Haut de page */
+.hero{padding:64px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.hero-text{display:flex;flex-direction:column;gap:24px}
+.hero h1{font-size:clamp(38px,5vw,56px);line-height:1.1;max-width:18ch}
+.hero-sub{font-size:19px;color:var(--muted);max-width:56ch}
+.actions{display:flex;gap:16px;flex-wrap:wrap}
+.stack{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:0 20px 50px rgba(30,42,40,.08);display:flex;flex-direction:column;gap:12px}
+.stack-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.mini{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;padding:14px;border-radius:8px;background:var(--bg);text-decoration:none;color:inherit;transition:transform .2s}
+.mini:hover{transform:translateX(4px);color:inherit}
+.mini-ico{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.mini b{display:block;font-size:16px}
+.mini span{display:block;font-size:13.5px;color:var(--muted);line-height:1.4}
+.i-olive{background:#E9EDD5}
+.mini-ico img{width:34px;height:34px;object-fit:contain}
+.mini-ico img.full{width:44px;height:44px}
+.prod-head{display:flex;align-items:center;gap:12px}
+.prod-logo{width:40px;height:40px;object-fit:contain;flex-shrink:0}
+.prod-emoji{display:flex;align-items:center;justify-content:center;font-size:24px;border-radius:10px;background:#DCEBEF}
+.i-sand{background:#DDF1EA}
+.i-blue{background:#DCEBEF}.i-sand{background:#F1E6CF}
+
+/* Sections */
+section{padding:72px 0}
+.alt{background:var(--bg2)}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:40px;max-width:640px}
+.sec-head h2{font-size:clamp(28px,3.4vw,36px)}
+.sec-head p{color:var(--muted);font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.card h3{font-size:22px}
+.card p{color:var(--muted)}
+.card .more{margin-top:auto;font-weight:700;text-decoration:none}
+.card .more:hover{text-decoration:underline}
+.product{border-top:4px solid var(--teal)}
+.product.olive{border-top-color:var(--olive)}
+.product.blue{border-top-color:#2E7A8C}
+.product.sand{border-top-color:#16A37F}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12.5px;font-weight:600;background:var(--bg);border:1px solid var(--line);border-radius:100px;padding:3px 10px;color:var(--muted)}
+.step{display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--teal);padding-top:18px}
+.step .n{font-family:var(--ff-title);font-size:30px;color:var(--olive)}
+.step h3{font-size:20px}
+.step p{color:var(--muted)}
+
+/* FAQ */
+.faq{max-width:760px}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:var(--teal);font-size:22px;line-height:1}
+details[open] summary::after{content:'−'}
+details p{margin-top:12px;color:var(--muted)}
+
+/* Contact */
+.contact-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:36px;max-width:760px;display:flex;flex-direction:column;gap:20px}
+.contact-box h2{font-size:clamp(28px,3.4vw,36px)}
+.contact-lines{display:grid;gap:12px}
+.contact-lines a{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:600;text-decoration:none}
+.contact-lines a:hover{text-decoration:underline}
+.contact-ico{width:40px;height:40px;border-radius:50%;background:var(--bg);display:inline-flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+
+footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero{padding:40px 0 56px}
+  nav{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 16px}
+  .head{padding:12px 16px}
+  .contact-box{padding:24px}
+  .contact-lines a{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mini{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head">
+    <a class="brand" href="#">KhariSem</a>
+    <div class="head-right">
+      <nav>
+        <a href="#produits" data-fr="Produits" data-en="Products">Produits</a>
+        <a href="#services" data-fr="Services" data-en="Services">Services</a>
+        <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Langue">
+        <button type="button" class="active" data-lang="fr">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HAUT DE PAGE -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow" data-fr="🌍 Équipe internationale · Logiciels de gestion" data-en="🌍 International team · Management software">🌍 Équipe internationale · Logiciels de gestion</span>
+      <h1 data-fr="Des logiciels clairs pour les métiers qui les utilisent" data-en="Clear software for the trades that use it">Des logiciels clairs pour les métiers qui les utilisent</h1>
+      <p class="hero-sub" data-fr="KhariSem conçoit des logiciels de gestion pour les huileries, l'aquaculture et les indépendants, en partant de la réalité du terrain. Nous développons aussi des applications web sur mesure." data-en="KhariSem builds management software for olive mills, fish farms and independent professionals, starting from how the work is really done. We also build custom web applications.">KhariSem conçoit des logiciels de gestion pour les huileries, l'aquaculture et les indépendants, en partant de la réalité du terrain. Nous développons aussi des applications web sur mesure.</p>
+      <div class="actions">
+        <a href="#produits" class="btn primary" data-fr="Découvrir nos produits" data-en="Discover our products">Découvrir nos produits</a>
+        <a href="#contact" class="btn ghost" data-fr="Demander un devis" data-en="Request a quote">Demander un devis</a>
+      </div>
+    </div>
+
+    <div class="stack" aria-label="Nos produits">
+      <div class="stack-title" data-fr="Nos produits" data-en="Our products">Nos produits</div>
+      <a class="mini" href="https://www.maasara.com" target="_blank" rel="noopener">
+        <span class="mini-ico i-olive" aria-hidden="true"><img src="images/maasara-icon.svg" alt=""></span>
+        <div><b>Maasara Manager</b><span data-fr="Gestion complète des huileries" data-en="Complete olive mill management">Gestion complète des huileries</span></div>
+      </a>
+      <a class="mini" href="#produits">
+        <span class="mini-ico" aria-hidden="true"><img class="full" src="images/aquaerp-icon.svg" alt=""></span>
+        <div><b>Aqua'ERP</b><span data-fr="Gestion des fermes aquacoles" data-en="Fish farm management">Gestion des fermes aquacoles</span></div>
+      </a>
+      <a class="mini" href="https://getsheetly.com" target="_blank" rel="noopener">
+        <span class="mini-ico" aria-hidden="true"><img class="full" src="images/sheetly-icon.svg" alt=""></span>
+        <div><b>Sheetly</b><span data-fr="Rapports clients à partir d'Excel" data-en="Client reports from Excel">Rapports clients à partir d'Excel</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUITS -->
+<section id="produits" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-fr="Produits" data-en="Products">Produits</span>
+      <h2 data-fr="Trois logiciels, un même souci du métier" data-en="Three products, the same focus on the trade">Trois logiciels, un même souci du métier</h2>
+      <p data-fr="Chaque produit parle le langage de ses utilisateurs et fonctionne avec leurs vraies contraintes." data-en="Each product speaks its users' language and works within their real constraints.">Chaque produit parle le langage de ses utilisateurs et fonctionne avec leurs vraies contraintes.</p>
+    </div>
+    <div class="grid">
+      <article class="card product olive">
+        <span class="eyebrow" data-fr="Huileries" data-en="Olive mills">Huileries</span>
+        <div class="prod-head"><img class="prod-logo" src="images/maasara-icon.svg" alt="Logo Maasara Manager"><h3>Maasara Manager</h3></div>
+        <p data-fr="Logiciel de gestion pour huileries : trituration, traçabilité par lot, pesée lue sur la balance, cuves, ventes, paiements et rapports. Fonctionne en ligne ou installé sur place, même sans internet." data-en="Management software for olive mills: milling, lot traceability, weights read from the scale, tanks, sales, payments and reports. Runs online or installed on site, even without internet.">Logiciel de gestion pour huileries : trituration, traçabilité par lot, pesée lue sur la balance, cuves, ventes, paiements et rapports. Fonctionne en ligne ou installé sur place, même sans internet.</p>
+        <div class="tags"><span class="tag" data-fr="Français · Anglais · Arabe" data-en="French · English · Arabic">Français · Anglais · Arabe</span></div>
+        <a class="more" href="https://www.maasara.com" target="_blank" rel="noopener" data-fr="Visiter le site →" data-en="Visit the website →">Visiter le site →</a>
+      </article>
+      <article class="card product blue">
+        <span class="eyebrow" data-fr="Aquaculture" data-en="Aquaculture">Aquaculture</span>
+        <div class="prod-head"><img class="prod-logo" src="images/aquaerp-icon.svg" alt="Logo Aqua'ERP"><h3>Aqua'ERP</h3></div>
+        <p data-fr="Logiciel de gestion pour fermes aquacoles : suivi des poissons et des bassins, au quotidien et sur toute la saison." data-en="Management software for fish farms: tracking of fish and ponds, day to day and across the whole season.">Logiciel de gestion pour fermes aquacoles : suivi des poissons et des bassins, au quotidien et sur toute la saison.</p>
+        <div class="tags"><span class="tag" data-fr="Démonstration sur demande" data-en="Demo on request">Démonstration sur demande</span></div>
+        <a class="more" href="https://wa.me/14189282650?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9monstration%20d'Aqua'ERP." target="_blank" rel="noopener" data-fr="Demander une démonstration →" data-en="Request a demo →">Demander une démonstration →</a>
+      </article>
+      <article class="card product sand">
+        <span class="eyebrow" data-fr="Freelances et consultants" data-en="Freelancers & consultants">Freelances et consultants</span>
+        <div class="prod-head"><img class="prod-logo" src="images/sheetly-icon.svg" alt="Logo Sheetly"><h3>Sheetly</h3></div>
+        <p data-fr="Transforme vos fichiers Excel en rapports clients prêts à présenter, sans formation en outils de visualisation." data-en="Turns your Excel files into client-ready reports, with no data-visualization training needed.">Transforme vos fichiers Excel en rapports clients prêts à présenter, sans formation en outils de visualisation.</p>
+        <div class="tags"><span class="tag" data-fr="Gratuit pendant la bêta" data-en="Free during beta">Gratuit pendant la bêta</span></div>
+        <a class="more" href="https://getsheetly.com" target="_blank" rel="noopener" data-fr="Visiter le site →" data-en="Visit the website →">Visiter le site →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-fr="Services" data-en="Services">Services</span>
+      <h2 data-fr="Développement sur mesure" data-en="Custom development">Développement sur mesure</h2>
+      <p data-fr="Pour les projets qui ne rentrent dans aucun produit existant." data-en="For projects that don't fit an existing product.">Pour les projets qui ne rentrent dans aucun produit existant.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3 data-fr="Applications web" data-en="Web applications">Applications web</h3>
+        <p data-fr="Applications Angular et API NestJS, de la conception au déploiement." data-en="Angular applications and NestJS APIs, from design to deployment.">Applications Angular et API NestJS, de la conception au déploiement.</p>
+      </div>
+      <div class="card">
+        <h3 data-fr="Intégration de systèmes" data-en="Systems integration">Intégration de systèmes</h3>
+        <p data-fr="Connexion et migration de systèmes existants, avec une attention particulière à la reprise des données." data-en="Connecting and migrating existing systems, with close attention to data migration.">Connexion et migration de systèmes existants, avec une attention particulière à la reprise des données.</p>
+      </div>
+      <div class="card">
+        <h3 data-fr="Analyse des besoins" data-en="Requirements analysis">Analyse des besoins</h3>
+        <p data-fr="Recueil des besoins, modélisation des processus et documentation de projet." data-en="Requirements gathering, process modelling and project documentation.">Recueil des besoins, modélisation des processus et documentation de projet.</p>
+      </div>
+      <div class="card">
+        <h3 data-fr="Formulaires web" data-en="Web forms">Formulaires web</h3>
+        <p data-fr="Formulaires accessibles et faciles à remplir, adaptés à vos processus." data-en="Accessible, easy-to-fill forms, adapted to your processes.">Formulaires accessibles et faciles à remplir, adaptés à vos processus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-fr="Démarche" data-en="Our approach">Démarche</span>
+      <h2 data-fr="Comment ça marche" data-en="How it works">Comment ça marche</h2>
+    </div>
+    <div class="grid">
+      <div class="step">
+        <span class="n">01</span>
+        <h3 data-fr="Échange sur votre besoin" data-en="We discuss your needs">Échange sur votre besoin</h3>
+        <p data-fr="Nous décrivons vos processus actuels et ce que vous voulez améliorer." data-en="We map out your current processes and what you want to improve.">Nous décrivons vos processus actuels et ce que vous voulez améliorer.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3 data-fr="Démonstration ou devis" data-en="Demo or quote">Démonstration ou devis</h3>
+        <p data-fr="Pour un produit, une démonstration avec vos cas réels. Pour un projet sur mesure, une proposition détaillée avec le périmètre et les étapes." data-en="For a product, a demo using your real cases. For a custom project, a detailed proposal with scope and milestones.">Pour un produit, une démonstration avec vos cas réels. Pour un projet sur mesure, une proposition détaillée avec le périmètre et les étapes.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3 data-fr="Mise en service et suivi" data-en="Go-live and support">Mise en service et suivi</h3>
+        <p data-fr="Installation, formation et documentation, puis un suivi après la mise en service." data-en="Installation, training and documentation, followed by support after go-live.">Installation, formation et documentation, puis un suivi après la mise en service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</span>
+      <h2 data-fr="Vous vous posez des questions ?" data-en="Have questions?">Vous vous posez des questions ?</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary data-fr="Puis-je essayer les produits avant de m'engager ?" data-en="Can I try the products before committing?">Puis-je essayer les produits avant de m'engager ?</summary>
+        <p data-fr="Oui. Une démonstration est possible sur demande pour Maasara Manager comme pour Aqua'ERP. Sheetly est accessible gratuitement pendant sa phase bêta." data-en="Yes. A demo is available on request for both Maasara Manager and Aqua'ERP. Sheetly is free during its beta.">Oui. Une démonstration est possible sur demande pour Maasara Manager comme pour Aqua'ERP. Sheetly est accessible gratuitement pendant sa phase bêta.</p>
+      </details>
+      <details>
+        <summary data-fr="Comment obtenir un devis ?" data-en="How do I get a quote?">Comment obtenir un devis ?</summary>
+        <p data-fr="Écrivez-nous en décrivant votre projet ou votre activité. Les tarifs sont établis sur devis, selon le produit choisi ou le périmètre du projet." data-en="Write to us describing your project or business. Prices are quoted individually, based on the chosen product or the project scope.">Écrivez-nous en décrivant votre projet ou votre activité. Les tarifs sont établis sur devis, selon le produit choisi ou le périmètre du projet.</p>
+      </details>
+      <details>
+        <summary data-fr="Travaillez-vous avec des clients hors du Canada ?" data-en="Do you work with clients outside Canada?">Travaillez-vous avec des clients hors du Canada ?</summary>
+        <p data-fr="Oui. Les démonstrations et le suivi se font à distance, et les logiciels sont disponibles en français, en anglais et en arabe." data-en="Yes. Demos and support are done remotely, and the software is available in French, English and Arabic.">Oui. Les démonstrations et le suivi se font à distance, et les logiciels sont disponibles en français, en anglais et en arabe.</p>
+      </details>
+      <details>
+        <summary data-fr="Quels types de projets sur mesure acceptez-vous ?" data-en="What kinds of custom projects do you take on?">Quels types de projets sur mesure acceptez-vous ?</summary>
+        <p data-fr="Des applications web, des intégrations entre systèmes et des formulaires. Décrivez votre besoin et nous verrons ensemble si c'est adapté." data-en="Web applications, integrations between systems, and forms. Describe your need and we'll see together whether it's a good fit.">Des applications web, des intégrations entre systèmes et des formulaires. Décrivez votre besoin et nous verrons ensemble si c'est adapté.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2 data-fr="Contact" data-en="Contact">Contact</h2>
+      <p data-fr="Pour un projet, une démonstration ou une question, écrivez-nous. Nous répondons en français, en anglais ou en arabe." data-en="For a project, a demo or a question, write to us. We reply in French, English or Arabic.">Pour un projet, une démonstration ou une question, écrivez-nous. Nous répondons en français, en anglais ou en arabe.</p>
+      <div class="contact-lines">
+        <!-- Courriel à ajouter après l'achat du domaine : contact@ -->
+        <a href="https://wa.me/14189282650" target="_blank" rel="noopener"><span class="contact-ico" aria-hidden="true">💬</span><span><span data-fr="WhatsApp" data-en="WhatsApp">WhatsApp</span> · <span class="ltr">+1 418 928 2650</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-fr="Expertise internationale · Des logiciels pensés pour le terrain" data-en="International expertise · Software built for the field">Expertise internationale · Des logiciels pensés pour le terrain</span>
+  <span data-fr="© 2026 KhariSem. Tous droits réservés." data-en="© 2026 KhariSem. All rights reserved.">© 2026 KhariSem. Tous droits réservés.</span>
+</footer>
+
+<script>
+var TITLES = {
+  fr: "KhariSem — Logiciels de gestion et développement web",
+  en: "KhariSem — Management software and web development"
+};
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.title = TITLES[lang];
+  document.querySelectorAll('[data-fr]').forEach(function(el){
+    var t = el.getAttribute('data-' + lang);
+    if(t !== null) el.textContent = t;
+  });
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+  try { localStorage.setItem('kharisem-lang', lang); } catch(e) {}
+}
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+});
+try {
+  var saved = localStorage.getItem('kharisem-lang');
+  if(saved && saved !== 'fr' && TITLES[saved]) setLang(saved);
+} catch(e) {}
+</script>
+</body>
+</html>
