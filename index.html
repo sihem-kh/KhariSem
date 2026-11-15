@@ -1,131 +1,250 @@
 <!doctype html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KhariSem — Logiciels de gestion et développement web</title>
-<meta name="description" content="KhariSem réunit les logiciels Maasara Manager, Aqua'ERP et Sheetly, ainsi que des services de développement web Angular et NestJS.">
+<meta name="description" content="KhariSem conçoit Maasara Manager, Aqua'ERP et Sheetly, et développe des applications web sur mesure.">
 <link rel="icon" type="image/svg+xml" href="images/kharisem-logo.svg">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F6F4EE;--bg2:#EDEAE0;--card:#FFFFFF;--ink:#1E2A28;--muted:#4A5552;--line:#D6D2C4;
-  --teal:#1F6F6A;--teal-dk:#15504C;--olive:#6B7A2A;
-  --ff-title:Fraunces,Georgia,serif;--ff-body:Manrope,system-ui,sans-serif;
+  --night:#0D3534;     /* fond du haut de page et du pied de page */
+  --night-2:#124544;
+  --teal:#1F6F6A;      /* actions */
+  --teal-dk:#175752;
+  --mint:#CFE8E0;      /* traits du graphe, teintes */
+  --paper:#F4F6F3;     /* fond général, froid et clair */
+  --white:#FFFFFF;
+  --ink:#13211F;
+  --muted:#4F5F5C;
+  --line:#DCE3DF;
+  --gold:#D9A441;      /* l'étoile du logo, utilisée avec parcimonie */
+  --err:#B23B2E;
+  --ff-d:'Bricolage Grotesque',system-ui,sans-serif;
+  --ff:'Instrument Sans',system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ff-body);line-height:1.6;color-scheme:light;-webkit-font-smoothing:antialiased}
-a{color:var(--teal)}a:hover{color:var(--teal-dk)}
-h1,h2,h3{font-family:var(--ff-title);font-weight:600;text-wrap:balance;margin:0}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ff);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;color-scheme:light}
+h1,h2,h3{font-family:var(--ff-d);margin:0;letter-spacing:-.02em;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);font-weight:700}
+a{color:var(--teal)}
+img{display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
 .ltr{direction:ltr;unicode-bidi:isolate}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:6px}
 
-/* En-tête */
-header{position:sticky;top:0;z-index:10;background:rgba(246,244,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(214,210,196,.6)}
-.head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;max-width:1120px;margin:0 auto;flex-wrap:wrap}
-.brand{font-family:var(--ff-title);font-size:26px;font-weight:600;color:var(--teal);text-decoration:none;display:inline-flex;align-items:center;gap:10px}
-.brand img{display:block}
-.brand-sem{color:#C8962E}
-.head-right{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-nav{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;font-weight:600}
-nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--teal)}
-.lang{display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:100px;padding:3px;gap:2px}
-.lang button{border:0;background:transparent;font:inherit;font-size:13px;font-weight:700;color:var(--muted);padding:6px 12px;border-radius:100px;cursor:pointer}
-.lang button.active{background:var(--teal);color:#F6F4EE}
+/* ---------- En-tête (sur fond nuit) ---------- */
+header{position:sticky;top:0;z-index:20;background:rgba(13,53,52,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(207,232,224,.10)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--ff-d);font-weight:800;font-size:24px;letter-spacing:-.02em;color:#fff}
+.brand-sem{color:var(--gold)}
+.head-right{display:flex;align-items:center;gap:28px}
+nav{display:flex;gap:26px}
+nav a{color:rgba(255,255,255,.78);text-decoration:none;font-weight:600;font-size:15px}
+nav a:hover{color:#fff}
+.lang{display:inline-flex;border:1px solid rgba(207,232,224,.25);border-radius:100px;padding:3px}
+.lang button{border:0;background:transparent;color:rgba(255,255,255,.7);font:600 13px var(--ff);padding:6px 12px;border-radius:100px;cursor:pointer}
+.lang button.active{background:var(--mint);color:var(--night)}
 
-/* Boutons */
-.btn{display:inline-block;padding:14px 26px;border-radius:6px;text-decoration:none;font-weight:700;border:1.5px solid var(--teal)}
-.btn.primary{background:var(--teal);color:#F6F4EE}.btn.primary:hover{background:var(--teal-dk);color:#F6F4EE}
-.btn.ghost{color:var(--teal)}.btn.ghost:hover{background:rgba(31,111,106,.06)}
+/* ---------- Boutons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font:700 16px var(--ff);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.btn.primary{background:var(--teal);color:#fff}
+.btn.primary:hover{background:var(--teal-dk)}
+.hero .btn.primary{background:var(--mint);color:var(--night)}
+.hero .btn.primary:hover{background:#fff}
+.btn.ghost{border-color:rgba(207,232,224,.4);color:#fff}
+.btn.ghost:hover{border-color:#fff}
 
-/* Haut de page */
-.hero{padding:64px 0 80px}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
-.hero-text{display:flex;flex-direction:column;gap:24px}
-.hero h1{font-size:clamp(38px,5vw,56px);line-height:1.1;max-width:18ch}
-.hero-sub{font-size:19px;color:var(--muted);max-width:56ch}
-.actions{display:flex;gap:16px;flex-wrap:wrap}
-.stack{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:0 20px 50px rgba(30,42,40,.08);display:flex;flex-direction:column;gap:12px}
-.stack-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
-.mini{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;padding:14px;border-radius:8px;background:var(--bg);text-decoration:none;color:inherit;transition:transform .2s}
-.mini:hover{transform:translateX(4px);color:inherit}
-.mini-ico{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
-.mini b{display:block;font-size:16px}
-.mini span{display:block;font-size:13.5px;color:var(--muted);line-height:1.4}
-.i-olive{background:#E9EDD5}
-.mini-ico img{width:34px;height:34px;object-fit:contain}
-.mini-ico img.full{width:44px;height:44px}
-.prod-head{display:flex;align-items:center;gap:12px}
-.prod-logo{width:40px;height:40px;object-fit:contain;flex-shrink:0}
-.prod-emoji{display:flex;align-items:center;justify-content:center;font-size:24px;border-radius:10px;background:#DCEBEF}
-.i-sand{background:#DDF1EA}
-.i-blue{background:#DCEBEF}.i-sand{background:#F1E6CF}
+/* ---------- Haut de page ---------- */
+.hero{background:var(--night);color:#fff;padding:72px 0 96px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(207,232,224,.09) 1.2px,transparent 1.3px);background-size:28px 28px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--mint);background:rgba(207,232,224,.08);border:1px solid rgba(207,232,224,.18);padding:6px 13px;border-radius:100px}
+.hero h1{font-size:clamp(40px,5.6vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.035em;max-width:13ch}
+.hero-sub{margin-top:24px;font-size:19px;line-height:1.6;color:rgba(255,255,255,.78);max-width:52ch}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
 
-/* Sections */
-section{padding:72px 0}
-.alt{background:var(--bg2)}
-.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:40px;max-width:640px}
-.sec-head h2{font-size:clamp(28px,3.4vw,36px)}
-.sec-head p{color:var(--muted);font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:12px}
-.card h3{font-size:22px}
-.card p{color:var(--muted)}
-.card .more{margin-top:auto;font-weight:700;text-decoration:none}
-.card .more:hover{text-decoration:underline}
-.product{border-top:4px solid var(--teal)}
-.product.olive{border-top-color:var(--olive)}
-.product.blue{border-top-color:#2E7A8C}
-.product.sand{border-top-color:#16A37F}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tag{font-size:12.5px;font-weight:600;background:var(--bg);border:1px solid var(--line);border-radius:100px;padding:3px 10px;color:var(--muted)}
-.step{display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--teal);padding-top:18px}
-.step .n{font-family:var(--ff-title);font-size:30px;color:var(--olive)}
-.step h3{font-size:20px}
-.step p{color:var(--muted)}
+/* Le graphe : KhariSem au centre, relié à ses produits */
+.graph{position:relative;width:100%;max-width:520px;margin-left:auto;aspect-ratio:1/0.9}
+.graph svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.edge{fill:none;stroke:var(--mint);stroke-width:1.6;stroke-linecap:round;opacity:.55;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.1s cubic-bezier(.6,.1,.2,1) forwards}
+.edge.faint{opacity:.18;stroke-dasharray:3 6;stroke-dashoffset:0;animation:fadeIn .8s 1.4s both}
+.dot{fill:var(--mint);opacity:0;animation:fadeIn .5s forwards}
+.node{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:#fff;opacity:0;animation:pop .55s cubic-bezier(.3,1.4,.5,1) forwards}
+.node-ico{width:76px;height:76px;border-radius:22px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(0,0,0,.28);transition:transform .2s}
+.node-ico img{width:52px;height:52px}
+.node-ico img.full{width:76px;height:76px;border-radius:22px}
+.node:hover .node-ico{transform:translateY(-4px)}
+.node b{font-family:var(--ff-d);font-weight:700;font-size:16px;white-space:nowrap;background:var(--night);padding:0 8px;border-radius:6px}
+.node small{display:block;margin-top:-10px;font-size:13px;color:rgba(255,255,255,.62);white-space:nowrap;background:var(--night);padding:0 8px;border-radius:6px}
+.node.center .node-ico{width:104px;height:104px;border-radius:30px;background:var(--night-2);border:1.5px solid rgba(207,232,224,.3);box-shadow:0 0 0 10px rgba(207,232,224,.05),0 0 60px rgba(217,164,65,.22)}
+.node.center .node-ico img{width:104px;height:104px;border-radius:30px}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+
+/* ---------- Sections ---------- */
+section{padding:104px 0}
+.sec-head{max-width:640px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(32px,4vw,48px);line-height:1.08;font-weight:800}
+.sec-head p{margin-top:16px;font-size:18px;color:var(--muted)}
+
+/* Produits : une fiche par ligne, pas trois cartes identiques */
+.products{display:flex;flex-direction:column;gap:20px}
+.product{display:grid;grid-template-columns:88px minmax(0,1fr) auto;gap:32px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:24px;padding:32px 36px;position:relative;overflow:hidden}
+.product::after{content:"";position:absolute;left:0;top:28px;bottom:28px;width:4px;border-radius:0 4px 4px 0;background:var(--accent)}
+.product.p-maasara{--accent:#8E9A3F}
+.product.p-aqua{--accent:#2A7D96}
+.product.p-sheetly{--accent:#16A37F}
+.product .logo{width:88px;height:88px;border-radius:24px;background:var(--paper);display:flex;align-items:center;justify-content:center}
+.product .logo img{width:62px;height:62px}
+.p-maasara .logo{background:#FFFFFF}
+.product .logo img.full{width:88px;height:88px;border-radius:24px}
+.p-for{font-size:14.5px;font-weight:600;color:var(--muted)}
+.product h3{font-size:28px;font-weight:800;line-height:1.15;margin-top:2px}
+.product p{margin-top:10px;color:var(--muted);max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{font-size:13.5px;font-weight:600;color:var(--teal-dk);background:#E7F1EE;padding:5px 12px;border-radius:100px}
+.p-actions{display:flex;flex-direction:column;gap:10px;min-width:210px}
+.p-actions .btn{padding:12px 20px;font-size:15px}
+.btn.line{border-color:var(--line);color:var(--ink);background:transparent}
+.btn.line:hover{border-color:var(--teal);color:var(--teal)}
+
+/* Services : sur fond nuit, liste compacte */
+.services{background:var(--night);color:#fff}
+.services .sec-head p{color:rgba(255,255,255,.72)}
+.svc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:rgba(207,232,224,.12);border-radius:24px;overflow:hidden}
+.svc{background:var(--night);padding:34px 36px}
+.svc h3{font-size:22px;font-weight:700;display:flex;align-items:center;gap:12px}
+.svc h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--mint);transform:rotate(45deg);flex-shrink:0}
+.svc p{margin-top:10px;color:rgba(255,255,255,.72)}
+.svc-tech{margin-top:28px;font-size:15px;color:rgba(255,255,255,.6)}
+
+/* Étapes : une vraie suite, donc numérotée */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;counter-reset:step;position:relative}
+.steps::before{content:"";position:absolute;top:27px;left:28px;right:28px;height:2px;background:linear-gradient(90deg,var(--teal),var(--mint))}
+.step{position:relative;counter-increment:step}
+.step::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:18px;background:var(--teal);color:#fff;font:800 22px var(--ff-d);margin-bottom:22px;box-shadow:0 0 0 8px var(--paper)}
+.step h3{font-size:21px;font-weight:700}
+.step p{margin-top:8px;color:var(--muted)}
 
 /* FAQ */
-.faq{max-width:760px}
-details{border-bottom:1px solid var(--line);padding:18px 0}
-summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
+.faq-wrap .sec-head{margin-bottom:0;position:sticky;top:110px}
+details{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px 24px;margin-bottom:12px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;font-weight:700;font-size:17.5px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:'+';color:var(--teal);font-size:22px;line-height:1}
-details[open] summary::after{content:'−'}
+summary::after{content:"";width:12px;height:12px;flex-shrink:0;border-right:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
 details p{margin-top:12px;color:var(--muted)}
 
-/* Contact */
-.contact-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:36px;max-width:760px;display:flex;flex-direction:column;gap:20px}
-.contact-box h2{font-size:clamp(28px,3.4vw,36px)}
-.contact-lines{display:grid;gap:12px}
-.contact-lines a{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:600;text-decoration:none}
-.contact-lines a:hover{text-decoration:underline}
-.contact-ico{width:40px;height:40px;border-radius:50%;background:var(--bg);display:inline-flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+/* Contact et formulaire */
+.contact{padding-top:0}
+.contact-panel{background:var(--white);border:1px solid var(--line);border-radius:28px;display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);overflow:hidden}
+.contact-side{background:var(--teal);color:#fff;padding:48px 40px;display:flex;flex-direction:column;gap:18px}
+.contact-side h2{font-size:clamp(30px,3.4vw,40px);line-height:1.1;font-weight:800}
+.contact-side p{color:rgba(255,255,255,.82)}
+.contact-call{margin-top:auto;display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 18px}
+.contact-call:hover{background:rgba(255,255,255,.16)}
+.contact-call .ic{width:42px;height:42px;border-radius:12px;background:var(--mint);color:var(--night);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.contact-call small{display:block;font-size:13.5px;color:rgba(255,255,255,.75)}
+.contact-call b{display:block;font-size:18px}
+.contact-form{padding:44px 44px 40px}
 
-footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.demo-form{display:flex;flex-direction:column;gap:18px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;border:0;margin:0;padding:0;min-width:0}
+.choices legend{font-weight:700;font-size:15px;margin-bottom:10px;padding:0}
+.choice{position:relative}
+.choice input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.choice-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;background:var(--paper);transition:border-color .15s,background .15s}
+.choice-card img,.choice-card .ci{width:38px;height:38px;border-radius:10px;flex-shrink:0}
+.choice-card .ci{display:flex;align-items:center;justify-content:center;background:#E3E9E6;font-size:18px}
+.choice-card b{display:block;font-size:15px;line-height:1.25}
+.choice-card small{display:block;font-size:13px;color:var(--muted)}
+.choice input:checked + .choice-card{border-color:var(--teal);background:#E7F1EE;box-shadow:0 0 0 3px rgba(31,111,106,.14)}
+.choice input:focus-visible + .choice-card{outline:2.5px solid var(--gold);outline-offset:2px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field-label{display:block;font-weight:700;font-size:15px;margin-bottom:7px}
+.form-group input,.form-group textarea{width:100%;font:inherit;font-size:16px;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(31,111,106,.14)}
+.form-group textarea{min-height:100px;resize:vertical}
+.opt{font-weight:500;color:var(--muted)}
+.req::after{content:" *";color:#C0392B;font-weight:700}
+.star{color:#C0392B;font-weight:700}
+.form-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px}
+.form-actions button:disabled{opacity:.6;cursor:wait}
+.form-note{font-size:14px;color:var(--muted)}
+.field-err{display:block;margin-top:6px;font-size:14px;font-weight:600;color:var(--err)}
+.form-group.invalid input{border-color:var(--err);background:#FDF4F2}
+.choices.invalid .choice-card{border-color:#E3A69C}
+.choices .field-err{grid-column:1/-1;margin-top:0}
+.form-msg{display:none;padding:14px 16px;border-radius:12px;font-weight:600}
+.form-msg.ok{display:block;background:#E7F1EE;color:var(--teal-dk)}
+.form-msg.err{display:block;background:#F8E6E3;color:#9B3226}
 
-@media(max-width:860px){
+/* Pied de page */
+footer{background:var(--night);color:rgba(255,255,255,.7);padding:40px 0;font-size:14.5px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .brand{font-size:20px}
+
+/* ---------- Écrans plus étroits ---------- */
+@media(max-width:980px){
   .hero .wrap{grid-template-columns:1fr}
-  .hero{padding:40px 0 56px}
+  .graph{margin:8px auto 0;max-width:460px}
+  .product{grid-template-columns:72px minmax(0,1fr);gap:22px}
+  .product .logo{width:72px;height:72px;border-radius:20px}
+  .product .logo img{width:50px;height:50px}
+  .product .logo img.full{width:72px;height:72px;border-radius:20px}
+  .p-actions{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;min-width:0}
+  .faq-wrap{grid-template-columns:1fr;gap:32px}
+  .faq-wrap .sec-head{position:static}
+  .contact-panel{grid-template-columns:1fr}
+}
+@media(max-width:760px){
   nav{display:none}
+  section{padding:72px 0}
+  .contact{padding-top:0}
+  .hero{padding:48px 0 64px}
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:32px}
+  .steps::before{top:28px;bottom:28px;left:27px;right:auto;width:2px;height:auto;background:linear-gradient(180deg,var(--teal),var(--mint))}
+  .step{padding-left:80px}
+  .step::before{position:absolute;left:0;top:0;margin:0}
+  .form-row,.choices{grid-template-columns:1fr}
+  .node-ico{width:60px;height:60px;border-radius:18px}
+  .node-ico img{width:42px;height:42px}
+  .node-ico img.full{width:60px;height:60px;border-radius:18px}
+  .node.center .node-ico,.node.center .node-ico img{width:82px;height:82px;border-radius:24px}
+  .node b{font-size:14px}
+  .node small{font-size:12px}
 }
 @media(max-width:480px){
   .wrap{padding:0 16px}
-  .head{padding:12px 16px}
-  .contact-box{padding:24px}
-  .contact-lines a{font-size:16px}
+  .head{height:64px}
+  .product{padding:24px 20px;border-radius:20px}
+  .product h3{font-size:24px}
+  .svc{padding:26px 22px}
+  .contact-side{padding:32px 22px}
+  .contact-form{padding:28px 20px}
+  .p-actions .btn{flex:1 1 100%}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mini{transition:none}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .edge,.edge.faint,.dot,.node{animation:none;opacity:1;stroke-dashoffset:0}
+  .edge{opacity:.55}.edge.faint{opacity:.18}
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="head">
-    <a class="brand" href="#"><img src="images/kharisem-logo.svg" alt="" width="34" height="34"><span>Khari<span class="brand-sem">Sem</span></span></a>
+  <div class="wrap head">
+    <a class="brand" href="#"><img src="images/kharisem-logo.svg" alt="" width="36" height="36"><span>Khari<span class="brand-sem">Sem</span></span></a>
     <div class="head-right">
       <nav>
         <a href="#produits" data-fr="Produits" data-en="Products">Produits</a>
@@ -143,8 +262,11 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;font
 <!-- HAUT DE PAGE -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-text">
-      <span class="eyebrow" data-fr="🍁 Entreprise canadienne · Équipe internationale" data-en="🍁 Canadian company · International team">🍁 Entreprise canadienne · Équipe internationale</span>
+    <div>
+      <div class="badges">
+        <span class="badge"><span aria-hidden="true">🍁</span><span data-fr="Entreprise canadienne" data-en="Canadian company">Entreprise canadienne</span></span>
+        <span class="badge"><span aria-hidden="true">🌍</span><span data-fr="Équipe internationale" data-en="International team">Équipe internationale</span></span>
+      </div>
       <h1 data-fr="Des logiciels clairs pour les métiers qui les utilisent" data-en="Clear software for the trades that use it">Des logiciels clairs pour les métiers qui les utilisent</h1>
       <p class="hero-sub" data-fr="KhariSem conçoit des logiciels de gestion pour les huileries, l'aquaculture et les indépendants, en partant de la réalité du terrain. Nous développons aussi des applications web sur mesure." data-en="KhariSem builds management software for olive mills, fish farms and independent professionals, starting from how the work is really done. We also build custom web applications.">KhariSem conçoit des logiciels de gestion pour les huileries, l'aquaculture et les indépendants, en partant de la réalité du terrain. Nous développons aussi des applications web sur mesure.</p>
       <div class="actions">
@@ -153,80 +275,121 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;font
       </div>
     </div>
 
-    <div class="stack" aria-label="Nos produits">
-      <div class="stack-title" data-fr="Nos produits" data-en="Our products">Nos produits</div>
-      <a class="mini" href="https://www.maasara.com" target="_blank" rel="noopener">
-        <span class="mini-ico i-olive" aria-hidden="true"><img src="images/maasara-icon.svg" alt=""></span>
-        <div><b>Maasara Manager</b><span data-fr="Gestion complète des huileries" data-en="Complete olive mill management">Gestion complète des huileries</span></div>
+    <div class="graph" aria-label="KhariSem et ses produits : Maasara Manager, Aqua'ERP et Sheetly">
+      <svg viewBox="0 0 520 468" aria-hidden="true">
+        <!-- liens entre KhariSem (centre) et chaque produit -->
+        <path class="edge" style="--len:220;animation-delay:.15s" d="M260 234 C210 200 160 160 120 104"/>
+        <path class="edge" style="--len:220;animation-delay:.3s"  d="M260 234 C320 200 360 150 404 120"/>
+        <path class="edge" style="--len:200;animation-delay:.45s" d="M260 234 C290 290 330 330 372 372"/>
+        <path class="edge" style="--len:180;animation-delay:.6s"  d="M260 234 C220 280 160 320 112 360"/>
+        <!-- liens discrets entre produits -->
+        <path class="edge faint" d="M120 104 C220 60 320 70 404 120"/>
+        <path class="edge faint" d="M404 120 C450 220 430 300 372 372"/>
+        <path class="edge faint" d="M112 360 C70 260 80 170 120 104"/>
+        <circle class="dot" cx="60"  cy="230" r="3"   style="animation-delay:1.2s"/>
+        <circle class="dot" cx="470" cy="250" r="2.5" style="animation-delay:1.3s"/>
+        <circle class="dot" cx="250" cy="440" r="3"   style="animation-delay:1.4s"/>
+        <circle class="dot" cx="270" cy="40"  r="2.5" style="animation-delay:1.5s"/>
+      </svg>
+      <div class="node center" style="left:50%;top:50%;animation-delay:0s">
+        <span class="node-ico"><img src="images/kharisem-logo.svg" alt=""></span>
+      </div>
+      <a class="node" href="https://www.maasara.com" target="_blank" rel="noopener" style="left:23%;top:22%;animation-delay:.55s">
+        <span class="node-ico"><img src="images/maasara-icon.svg" alt=""></span>
+        <b>Maasara Manager</b><small data-fr="Huileries" data-en="Olive mills">Huileries</small>
       </a>
-      <a class="mini" href="#produits">
-        <span class="mini-ico" aria-hidden="true"><img class="full" src="images/aquaerp-icon.svg" alt=""></span>
-        <div><b>Aqua'ERP</b><span data-fr="Gestion des fermes aquacoles" data-en="Fish farm management">Gestion des fermes aquacoles</span></div>
+      <a class="node demo-link" href="#contact" data-produit="Aqua'ERP" style="left:78%;top:26%;animation-delay:.7s">
+        <span class="node-ico"><img class="full" src="images/aquaerp-icon.svg" alt=""></span>
+        <b>Aqua'ERP</b><small data-fr="Aquaculture" data-en="Aquaculture">Aquaculture</small>
       </a>
-      <a class="mini" href="https://getsheetly.com" target="_blank" rel="noopener">
-        <span class="mini-ico" aria-hidden="true"><img class="full" src="images/sheetly-icon.svg" alt=""></span>
-        <div><b>Sheetly</b><span data-fr="Rapports clients à partir d'Excel" data-en="Client reports from Excel">Rapports clients à partir d'Excel</span></div>
+      <a class="node" href="https://getsheetly.com" target="_blank" rel="noopener" style="left:72%;top:80%;animation-delay:.85s">
+        <span class="node-ico"><img class="full" src="images/sheetly-icon.svg" alt=""></span>
+        <b>Sheetly</b><small data-fr="Rapports Excel" data-en="Excel reports">Rapports Excel</small>
+      </a>
+      <a class="node demo-link" href="#contact" data-produit="Projet sur mesure" style="left:21%;top:77%;animation-delay:1s">
+        <span class="node-ico" style="font-size:30px">🛠️</span>
+        <b data-fr="Sur mesure" data-en="Custom">Sur mesure</b><small data-fr="Applications web" data-en="Web apps">Applications web</small>
       </a>
     </div>
   </div>
 </section>
 
 <!-- PRODUITS -->
-<section id="produits" class="alt">
+<section id="produits">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow" data-fr="Produits" data-en="Products">Produits</span>
       <h2 data-fr="Trois logiciels, un même souci du métier" data-en="Three products, the same focus on the trade">Trois logiciels, un même souci du métier</h2>
       <p data-fr="Chaque produit parle le langage de ses utilisateurs et fonctionne avec leurs vraies contraintes." data-en="Each product speaks its users' language and works within their real constraints.">Chaque produit parle le langage de ses utilisateurs et fonctionne avec leurs vraies contraintes.</p>
     </div>
-    <div class="grid">
-      <article class="card product olive">
-        <span class="eyebrow" data-fr="Huileries" data-en="Olive mills">Huileries</span>
-        <div class="prod-head"><img class="prod-logo" src="images/maasara-icon.svg" alt="Logo Maasara Manager"><h3>Maasara Manager</h3></div>
-        <p data-fr="Logiciel de gestion pour huileries : trituration, traçabilité par lot, pesée lue sur la balance, cuves, ventes, paiements et rapports. Fonctionne en ligne ou installé sur place, même sans internet." data-en="Management software for olive mills: milling, lot traceability, weights read from the scale, tanks, sales, payments and reports. Runs online or installed on site, even without internet.">Logiciel de gestion pour huileries : trituration, traçabilité par lot, pesée lue sur la balance, cuves, ventes, paiements et rapports. Fonctionne en ligne ou installé sur place, même sans internet.</p>
-        <div class="tags"><span class="tag" data-fr="Français · Anglais · Arabe" data-en="French · English · Arabic">Français · Anglais · Arabe</span></div>
-        <a class="more" href="https://www.maasara.com" target="_blank" rel="noopener" data-fr="Visiter le site →" data-en="Visit the website →">Visiter le site →</a>
+
+    <div class="products">
+      <article class="product p-maasara">
+        <div class="logo"><img src="images/maasara-icon.svg" alt="Logo Maasara Manager"></div>
+        <div>
+          <span class="p-for" data-fr="Pour les huileries" data-en="For olive mills">Pour les huileries</span>
+          <h3>Maasara Manager</h3>
+          <p data-fr="Trituration, traçabilité par lot, pesée lue sur la balance, cuves, ventes, paiements et rapports. Fonctionne en ligne ou installé sur place, même sans internet." data-en="Milling, lot traceability, weights read from the scale, tanks, sales, payments and reports. Runs online or installed on site, even without internet.">Trituration, traçabilité par lot, pesée lue sur la balance, cuves, ventes, paiements et rapports. Fonctionne en ligne ou installé sur place, même sans internet.</p>
+          <div class="chips">
+            <span class="chip" data-fr="Français, anglais et arabe" data-en="French, English and Arabic">Français, anglais et arabe</span>
+            <span class="chip" data-fr="Fonctionne sans internet" data-en="Works offline">Fonctionne sans internet</span>
+          </div>
+        </div>
+        <div class="p-actions">
+          <a class="btn primary demo-link" href="#contact" data-produit="Maasara Manager" data-fr="Demander une démo" data-en="Request a demo">Demander une démo</a>
+          <a class="btn line" href="https://www.maasara.com" target="_blank" rel="noopener" data-fr="Visiter le site" data-en="Visit the website">Visiter le site</a>
+        </div>
       </article>
-      <article class="card product blue">
-        <span class="eyebrow" data-fr="Aquaculture" data-en="Aquaculture">Aquaculture</span>
-        <div class="prod-head"><img class="prod-logo" src="images/aquaerp-icon.svg" alt="Logo Aqua'ERP"><h3>Aqua'ERP</h3></div>
-        <p data-fr="Logiciel de gestion pour fermes aquacoles : suivi des poissons et des bassins, au quotidien et sur toute la saison." data-en="Management software for fish farms: tracking of fish and ponds, day to day and across the whole season.">Logiciel de gestion pour fermes aquacoles : suivi des poissons et des bassins, au quotidien et sur toute la saison.</p>
-        <div class="tags"><span class="tag" data-fr="Démonstration sur demande" data-en="Demo on request">Démonstration sur demande</span></div>
-        <a class="more" href="https://wa.me/14189282650?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9monstration%20d'Aqua'ERP." target="_blank" rel="noopener" data-fr="Demander une démonstration →" data-en="Request a demo →">Demander une démonstration →</a>
+
+      <article class="product p-aqua">
+        <div class="logo"><img class="full" src="images/aquaerp-icon.svg" alt="Logo Aqua'ERP"></div>
+        <div>
+          <span class="p-for" data-fr="Pour les fermes aquacoles" data-en="For fish farms">Pour les fermes aquacoles</span>
+          <h3>Aqua'ERP</h3>
+          <p data-fr="Suivi des poissons et des bassins, au quotidien et sur toute la saison." data-en="Tracking of fish and ponds, day to day and across the whole season.">Suivi des poissons et des bassins, au quotidien et sur toute la saison.</p>
+          <div class="chips"><span class="chip" data-fr="Démonstration sur demande" data-en="Demo on request">Démonstration sur demande</span></div>
+        </div>
+        <div class="p-actions">
+          <a class="btn primary demo-link" href="#contact" data-produit="Aqua'ERP" data-fr="Demander une démo" data-en="Request a demo">Demander une démo</a>
+        </div>
       </article>
-      <article class="card product sand">
-        <span class="eyebrow" data-fr="Freelances et consultants" data-en="Freelancers & consultants">Freelances et consultants</span>
-        <div class="prod-head"><img class="prod-logo" src="images/sheetly-icon.svg" alt="Logo Sheetly"><h3>Sheetly</h3></div>
-        <p data-fr="Transforme vos fichiers Excel en rapports clients prêts à présenter, sans formation en outils de visualisation." data-en="Turns your Excel files into client-ready reports, with no data-visualization training needed.">Transforme vos fichiers Excel en rapports clients prêts à présenter, sans formation en outils de visualisation.</p>
-        <div class="tags"><span class="tag" data-fr="Gratuit pendant la bêta" data-en="Free during beta">Gratuit pendant la bêta</span></div>
-        <a class="more" href="https://getsheetly.com" target="_blank" rel="noopener" data-fr="Visiter le site →" data-en="Visit the website →">Visiter le site →</a>
+
+      <article class="product p-sheetly">
+        <div class="logo"><img class="full" src="images/sheetly-icon.svg" alt="Logo Sheetly"></div>
+        <div>
+          <span class="p-for" data-fr="Pour les freelances et consultants" data-en="For freelancers and consultants">Pour les freelances et consultants</span>
+          <h3>Sheetly</h3>
+          <p data-fr="Transforme vos fichiers Excel en rapports clients prêts à présenter, sans formation en outils de visualisation." data-en="Turns your Excel files into client-ready reports, with no data-visualization training needed.">Transforme vos fichiers Excel en rapports clients prêts à présenter, sans formation en outils de visualisation.</p>
+          <div class="chips"><span class="chip" data-fr="Gratuit pendant la bêta" data-en="Free during beta">Gratuit pendant la bêta</span></div>
+        </div>
+        <div class="p-actions">
+          <a class="btn primary" href="https://getsheetly.com" target="_blank" rel="noopener" data-fr="Essayer Sheetly" data-en="Try Sheetly">Essayer Sheetly</a>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services">
+<section id="services" class="services">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow" data-fr="Services" data-en="Services">Services</span>
-      <h2 data-fr="Développement sur mesure" data-en="Custom development">Développement sur mesure</h2>
-      <p data-fr="Pour les projets qui ne rentrent dans aucun produit existant." data-en="For projects that don't fit an existing product.">Pour les projets qui ne rentrent dans aucun produit existant.</p>
+      <h2 data-fr="Un projet qui ne rentre dans aucun produit ?" data-en="A project that doesn't fit any product?">Un projet qui ne rentre dans aucun produit ?</h2>
+      <p data-fr="Nous le développons sur mesure, de l'analyse des besoins à la mise en service." data-en="We build it for you, from requirements analysis to go-live.">Nous le développons sur mesure, de l'analyse des besoins à la mise en service.</p>
     </div>
-    <div class="grid">
-      <div class="card">
+    <div class="svc-grid">
+      <div class="svc">
         <h3 data-fr="Applications web" data-en="Web applications">Applications web</h3>
         <p data-fr="Applications Angular et API NestJS, de la conception au déploiement." data-en="Angular applications and NestJS APIs, from design to deployment.">Applications Angular et API NestJS, de la conception au déploiement.</p>
       </div>
-      <div class="card">
+      <div class="svc">
         <h3 data-fr="Intégration de systèmes" data-en="Systems integration">Intégration de systèmes</h3>
         <p data-fr="Connexion et migration de systèmes existants, avec une attention particulière à la reprise des données." data-en="Connecting and migrating existing systems, with close attention to data migration.">Connexion et migration de systèmes existants, avec une attention particulière à la reprise des données.</p>
       </div>
-      <div class="card">
+      <div class="svc">
         <h3 data-fr="Analyse des besoins" data-en="Requirements analysis">Analyse des besoins</h3>
         <p data-fr="Recueil des besoins, modélisation des processus et documentation de projet." data-en="Requirements gathering, process modelling and project documentation.">Recueil des besoins, modélisation des processus et documentation de projet.</p>
       </div>
-      <div class="card">
+      <div class="svc">
         <h3 data-fr="Formulaires web" data-en="Web forms">Formulaires web</h3>
         <p data-fr="Formulaires accessibles et faciles à remplir, adaptés à vos processus." data-en="Accessible, easy-to-fill forms, adapted to your processes.">Formulaires accessibles et faciles à remplir, adaptés à vos processus.</p>
       </div>
@@ -235,25 +398,21 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;font
 </section>
 
 <!-- COMMENT ÇA MARCHE -->
-<section class="alt">
+<section>
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow" data-fr="Démarche" data-en="Our approach">Démarche</span>
       <h2 data-fr="Comment ça marche" data-en="How it works">Comment ça marche</h2>
     </div>
-    <div class="grid">
+    <div class="steps">
       <div class="step">
-        <span class="n">01</span>
         <h3 data-fr="Échange sur votre besoin" data-en="We discuss your needs">Échange sur votre besoin</h3>
-        <p data-fr="Nous décrivons vos processus actuels et ce que vous voulez améliorer." data-en="We map out your current processes and what you want to improve.">Nous décrivons vos processus actuels et ce que vous voulez améliorer.</p>
+        <p data-fr="Nous décrivons ensemble vos processus actuels et ce que vous voulez améliorer." data-en="Together we map out your current processes and what you want to improve.">Nous décrivons ensemble vos processus actuels et ce que vous voulez améliorer.</p>
       </div>
       <div class="step">
-        <span class="n">02</span>
         <h3 data-fr="Démonstration ou devis" data-en="Demo or quote">Démonstration ou devis</h3>
         <p data-fr="Pour un produit, une démonstration avec vos cas réels. Pour un projet sur mesure, une proposition détaillée avec le périmètre et les étapes." data-en="For a product, a demo using your real cases. For a custom project, a detailed proposal with scope and milestones.">Pour un produit, une démonstration avec vos cas réels. Pour un projet sur mesure, une proposition détaillée avec le périmètre et les étapes.</p>
       </div>
       <div class="step">
-        <span class="n">03</span>
         <h3 data-fr="Mise en service et suivi" data-en="Go-live and support">Mise en service et suivi</h3>
         <p data-fr="Installation, formation et documentation, puis un suivi après la mise en service." data-en="Installation, training and documentation, followed by support after go-live.">Installation, formation et documentation, puis un suivi après la mise en service.</p>
       </div>
@@ -263,12 +422,12 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;font
 
 <!-- FAQ -->
 <section>
-  <div class="wrap">
+  <div class="wrap faq-wrap">
     <div class="sec-head">
-      <span class="eyebrow" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</span>
-      <h2 data-fr="Vous vous posez des questions ?" data-en="Have questions?">Vous vous posez des questions ?</h2>
+      <h2 data-fr="Questions fréquentes" data-en="Frequently asked questions">Questions fréquentes</h2>
+      <p data-fr="Vous ne trouvez pas votre réponse ? Écrivez-nous avec le formulaire juste en dessous." data-en="Can't find your answer? Write to us using the form just below.">Vous ne trouvez pas votre réponse ? Écrivez-nous avec le formulaire juste en dessous.</p>
     </div>
-    <div class="faq">
+    <div>
       <details>
         <summary data-fr="Puis-je essayer les produits avant de m'engager ?" data-en="Can I try the products before committing?">Puis-je essayer les produits avant de m'engager ?</summary>
         <p data-fr="Oui. Une démonstration est possible sur demande pour Maasara Manager comme pour Aqua'ERP. Sheetly est accessible gratuitement pendant sa phase bêta." data-en="Yes. A demo is available on request for both Maasara Manager and Aqua'ERP. Sheetly is free during its beta.">Oui. Une démonstration est possible sur demande pour Maasara Manager comme pour Aqua'ERP. Sheetly est accessible gratuitement pendant sa phase bêta.</p>
@@ -289,23 +448,61 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;font
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="alt">
+<!-- CONTACT / DEMANDE DE DÉMO -->
+<section id="contact" class="contact">
   <div class="wrap">
-    <div class="contact-box">
-      <h2 data-fr="Contact" data-en="Contact">Contact</h2>
-      <p data-fr="Pour un projet, une démonstration ou une question, écrivez-nous. Nous répondons en français, en anglais ou en arabe." data-en="For a project, a demo or a question, write to us. We reply in French, English or Arabic.">Pour un projet, une démonstration ou une question, écrivez-nous. Nous répondons en français, en anglais ou en arabe.</p>
-      <div class="contact-lines">
+    <div class="contact-panel">
+      <div class="contact-side">
+        <h2 data-fr="Demander une démonstration ou un devis" data-en="Request a demo or a quote">Demander une démonstration ou un devis</h2>
+        <p data-fr="Choisissez le logiciel qui vous intéresse et laissez-nous vos coordonnées. Nous vous recontactons sous 24 h, en français, en anglais ou en arabe." data-en="Choose the software you're interested in and leave us your details. We'll get back to you within 24 hours, in French, English or Arabic.">Choisissez le logiciel qui vous intéresse et laissez-nous vos coordonnées. Nous vous recontactons sous 24 h, en français, en anglais ou en arabe.</p>
         <!-- Courriel à ajouter après l'achat du domaine : contact@ -->
-        <a href="https://wa.me/14189282650" target="_blank" rel="noopener"><span class="contact-ico" aria-hidden="true">💬</span><span><span data-fr="WhatsApp" data-en="WhatsApp">WhatsApp</span> · <span class="ltr">+1 418 928 2650</span></span></a>
+        <a class="contact-call" href="tel:+14189282650">
+          <span class="ic" aria-hidden="true">📞</span>
+          <span><small data-fr="Téléphone / WhatsApp" data-en="Phone / WhatsApp">Téléphone / WhatsApp</small><b class="ltr">+1 418 928 2650</b></span>
+        </a>
+      </div>
+      <div class="contact-form">
+        <form class="demo-form" id="demoForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="3c5afcb6-09ab-4bc9-84a4-acc476ebcc3d">
+          <input type="hidden" name="subject" id="formSubject" value="Nouvelle demande — site KhariSem">
+          <input type="hidden" name="from_name" value="Site KhariSem">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <fieldset class="choices">
+            <legend class="req" data-fr="Quel logiciel vous intéresse ?" data-en="Which software are you interested in?">Quel logiciel vous intéresse ?</legend>
+            <label class="choice"><input type="radio" name="Produit" value="Maasara Manager" required><span class="choice-card"><img src="images/maasara-icon.svg" alt=""><span><b>Maasara Manager</b><small data-fr="Huileries" data-en="Olive mills">Huileries</small></span></span></label>
+            <label class="choice"><input type="radio" name="Produit" value="Aqua'ERP"><span class="choice-card"><img src="images/aquaerp-icon.svg" alt=""><span><b>Aqua'ERP</b><small data-fr="Aquaculture" data-en="Aquaculture">Aquaculture</small></span></span></label>
+            <label class="choice"><input type="radio" name="Produit" value="Sheetly"><span class="choice-card"><img src="images/sheetly-icon.svg" alt=""><span><b>Sheetly</b><small data-fr="Rapports Excel" data-en="Excel reports">Rapports Excel</small></span></span></label>
+            <label class="choice"><input type="radio" name="Produit" value="Projet sur mesure"><span class="choice-card"><span class="ci" aria-hidden="true">🛠️</span><span><b data-fr="Projet sur mesure" data-en="Custom project">Projet sur mesure</b><small data-fr="Application web" data-en="Web application">Application web</small></span></span></label>
+          </fieldset>
+
+          <div class="form-row">
+            <div class="form-group"><label class="field-label req" for="fNom" data-fr="Nom complet" data-en="Full name">Nom complet</label><input id="fNom" type="text" name="Nom" required autocomplete="name"></div>
+            <div class="form-group"><label class="field-label req" for="fPays" data-fr="Pays / Entreprise" data-en="Country / Company">Pays / Entreprise</label><input id="fPays" type="text" name="Pays et entreprise" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="field-label req" for="fTel" data-fr="Téléphone / WhatsApp" data-en="Phone / WhatsApp">Téléphone / WhatsApp</label><input id="fTel" type="tel" name="Téléphone / WhatsApp" required dir="ltr" autocomplete="tel"></div>
+            <div class="form-group"><label class="field-label" for="fMail"><span data-fr="Courriel" data-en="Email">Courriel</span> <span class="opt" data-fr="(facultatif)" data-en="(optional)">(facultatif)</span></label><input id="fMail" type="email" name="email" dir="ltr" autocomplete="email"></div>
+          </div>
+          <div class="form-group"><label class="field-label" for="fMsg"><span data-fr="Votre besoin" data-en="Your needs">Votre besoin</span> <span class="opt" data-fr="(facultatif)" data-en="(optional)">(facultatif)</span></label><textarea id="fMsg" name="Message" data-ph-fr="Taille de l'activité, questions, disponibilités pour la démo…" data-ph-en="Size of your business, questions, availability for the demo…" placeholder="Taille de l'activité, questions, disponibilités pour la démo…"></textarea></div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary" id="formBtn" data-fr="Envoyer ma demande" data-en="Send my request">Envoyer ma demande</button>
+            <span class="form-note"><span class="star" aria-hidden="true">*</span> <span data-fr="Champs obligatoires · 🔒 Vos informations restent confidentielles." data-en="Required fields · 🔒 Your information stays confidential.">Champs obligatoires · 🔒 Vos informations restent confidentielles.</span></span>
+          </div>
+          <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+        </form>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <span data-fr="🍁 Entreprise canadienne · Expertise internationale · Des logiciels pensés pour le terrain" data-en="🍁 Canadian company · International expertise · Software built for the field">🍁 Entreprise canadienne · Expertise internationale · Des logiciels pensés pour le terrain</span>
-  <span data-fr="© 2026 KhariSem. Tous droits réservés." data-en="© 2026 KhariSem. All rights reserved.">© 2026 KhariSem. Tous droits réservés.</span>
+  <div class="wrap foot">
+    <a class="brand" href="#"><img src="images/kharisem-logo.svg" alt="" width="30" height="30"><span>Khari<span class="brand-sem">Sem</span></span></a>
+    <span data-fr="🍁 Entreprise canadienne, expertise internationale" data-en="🍁 Canadian company, international expertise">🍁 Entreprise canadienne, expertise internationale</span>
+    <span data-fr="© 2026 KhariSem. Tous droits réservés." data-en="© 2026 KhariSem. All rights reserved.">© 2026 KhariSem. Tous droits réservés.</span>
+  </div>
 </footer>
 
 <script>
@@ -313,6 +510,7 @@ var TITLES = {
   fr: "KhariSem — Logiciels de gestion et développement web",
   en: "KhariSem — Management software and web development"
 };
+var currentLang = "fr";
 function setLang(lang){
   document.documentElement.lang = lang;
   document.title = TITLES[lang];
@@ -320,6 +518,11 @@ function setLang(lang){
     var t = el.getAttribute('data-' + lang);
     if(t !== null) el.textContent = t;
   });
+  document.querySelectorAll('[data-ph-fr]').forEach(function(el){
+    var t = el.getAttribute('data-ph-' + lang);
+    if(t !== null) el.placeholder = t;
+  });
+  currentLang = lang;
   document.querySelectorAll('.lang button').forEach(function(b){
     b.classList.toggle('active', b.getAttribute('data-lang') === lang);
   });
@@ -332,6 +535,100 @@ try {
   var saved = localStorage.getItem('kharisem-lang');
   if(saved && saved !== 'fr' && TITLES[saved]) setLang(saved);
 } catch(e) {}
+
+/* Les boutons « Demander une démo » des cartes présélectionnent le logiciel */
+document.querySelectorAll('.demo-link').forEach(function(a){
+  a.addEventListener('click', function(){
+    var p = a.getAttribute('data-produit');
+    var r = document.querySelector('#demoForm input[name="Produit"][value="' + p + '"]');
+    if(r){ r.checked = true; clearErr(document.querySelector('#demoForm .choices')); }
+  });
+});
+
+/* Envoi du formulaire par Web3Forms, sans quitter la page */
+var FORM_MSG = {
+  ok:  { fr: "Merci ! Votre demande est bien reçue. Nous vous recontactons sous 24 h.", en: "Thank you! Your request has been received. We'll get back to you within 24 hours." },
+  err: { fr: "L'envoi n'a pas fonctionné. Réessayez, ou écrivez-nous sur WhatsApp.", en: "Sending failed. Please try again, or message us on WhatsApp." },
+  sending: { fr: "Envoi…", en: "Sending…" }
+};
+var ERR = {
+  produit: { fr: "Choisissez le logiciel qui vous intéresse.", en: "Please choose the software you're interested in." },
+  requis:  { fr: "Ce champ est obligatoire.", en: "This field is required." },
+  tel:     { fr: "Entrez un numéro de téléphone valide.", en: "Please enter a valid phone number." },
+  email:   { fr: "Entrez une adresse courriel valide.", en: "Please enter a valid email address." },
+  resume:  { fr: "Certains champs obligatoires ne sont pas remplis. Vérifiez les champs en rouge.", en: "Some required fields are missing. Please check the fields in red." }
+};
+function showErr(box, key){
+  box.classList.add('invalid');
+  var e = box.querySelector('.field-err');
+  if(!e){ e = document.createElement('span'); e.className = 'field-err'; box.appendChild(e); }
+  e.setAttribute('data-err', key);
+  e.textContent = ERR[key][currentLang];
+}
+function clearErr(box){
+  box.classList.remove('invalid');
+  var e = box.querySelector('.field-err'); if(e) e.remove();
+}
+function validateForm(form){
+  var first = null;
+  var choices = form.querySelector('.choices');
+  if(!form.querySelector('input[name="Produit"]:checked')){ showErr(choices, 'produit'); first = first || form.querySelector('input[name="Produit"]'); }
+  else clearErr(choices);
+  [['fNom','requis'],['fPays','requis'],['fTel','tel'],['fMail','email']].forEach(function(f){
+    var input = document.getElementById(f[0]), box = input.closest('.form-group'), v = input.value.trim(), bad = false, key = 'requis';
+    if(f[0] === 'fMail'){ bad = v !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); key = 'email'; }
+    else if(v === ''){ bad = true; }
+    else if(f[0] === 'fTel'){ bad = v.replace(/\D/g,'').length < 8; key = 'tel'; }
+    if(bad){ showErr(box, key); first = first || input; } else clearErr(box);
+  });
+  return first;
+}
+// L'erreur disparaît dès que le client corrige le champ
+document.querySelectorAll('#demoForm input, #demoForm textarea').forEach(function(el){
+  el.addEventListener(el.type === 'radio' ? 'change' : 'input', function(){
+    var box = el.type === 'radio' ? el.closest('.choices') : el.closest('.form-group');
+    if(box && box.classList.contains('invalid')) clearErr(box);
+  });
+});
+// Les messages d'erreur suivent le changement de langue
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.field-err').forEach(function(e){ e.textContent = ERR[e.getAttribute('data-err')][currentLang]; });
+    var m = document.getElementById('formMsg');
+    if(m.getAttribute('data-err')) m.textContent = ERR.resume[currentLang];
+  });
+});
+
+document.getElementById('demoForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var invalid = validateForm(this);
+  var m0 = document.getElementById('formMsg');
+  if(invalid){
+    m0.className = 'form-msg err'; m0.setAttribute('data-err','1'); m0.textContent = ERR.resume[currentLang];
+    invalid.focus();
+    (invalid.type === 'radio' ? invalid.closest('.choices') : invalid.closest('.form-group')).scrollIntoView({ block: 'center' });
+    return;
+  }
+  m0.removeAttribute('data-err');
+  var form = this, btn = document.getElementById('formBtn'), msg = document.getElementById('formMsg');
+  var produit = (form.querySelector('input[name="Produit"]:checked') || {}).value || '';
+  document.getElementById('formSubject').value = 'Demande de démo — ' + produit + ' (site KhariSem)';
+  var label = btn.textContent;
+  btn.disabled = true; btn.textContent = FORM_MSG.sending[currentLang];
+  msg.className = 'form-msg'; msg.textContent = '';
+  fetch(form.action, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(d.success){ form.reset(); msg.className = 'form-msg ok'; msg.textContent = FORM_MSG.ok[currentLang]; }
+    else { throw new Error(); }
+  })
+  .catch(function(){ msg.className = 'form-msg err'; msg.textContent = FORM_MSG.err[currentLang]; })
+  .finally(function(){ btn.disabled = false; btn.textContent = label; });
+});
 </script>
 </body>
 </html>
