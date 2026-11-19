@@ -149,7 +149,8 @@ details p{margin-top:12px;color:var(--muted)}
 .contact-side{background:var(--teal);color:#fff;padding:48px 40px;display:flex;flex-direction:column;gap:18px}
 .contact-side h2{font-size:clamp(30px,3.4vw,40px);line-height:1.1;font-weight:800}
 .contact-side p{color:rgba(255,255,255,.82)}
-.contact-call{margin-top:auto;display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 18px}
+.contact-links{margin-top:auto;display:flex;flex-direction:column;gap:12px}
+.contact-call{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 18px}
 .contact-call:hover{background:rgba(255,255,255,.16)}
 .contact-call .ic{width:42px;height:42px;border-radius:12px;background:var(--mint);color:var(--night);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
 .contact-call small{display:block;font-size:13.5px;color:rgba(255,255,255,.75)}
@@ -455,11 +456,16 @@ footer{background:var(--night);color:rgba(255,255,255,.7);padding:40px 0;font-si
       <div class="contact-side">
         <h2 data-fr="Demander une démonstration ou un devis" data-en="Request a demo or a quote">Demander une démonstration ou un devis</h2>
         <p data-fr="Choisissez le logiciel qui vous intéresse et laissez-nous vos coordonnées. Nous vous recontactons sous 24 h, en français, en anglais ou en arabe." data-en="Choose the software you're interested in and leave us your details. We'll get back to you within 24 hours, in French, English or Arabic.">Choisissez le logiciel qui vous intéresse et laissez-nous vos coordonnées. Nous vous recontactons sous 24 h, en français, en anglais ou en arabe.</p>
-        <!-- Courriel à ajouter après l'achat du domaine : contact@ -->
+        <div class="contact-links">
+        <a class="contact-call" href="mailto:contact@kharisem.com">
+          <span class="ic" aria-hidden="true">✉️</span>
+          <span><small data-fr="Courriel" data-en="Email">Courriel</small><b class="ltr">contact@kharisem.com</b></span>
+        </a>
         <a class="contact-call" href="tel:+14189282650">
           <span class="ic" aria-hidden="true">📞</span>
           <span><small data-fr="Téléphone / WhatsApp" data-en="Phone / WhatsApp">Téléphone / WhatsApp</small><b class="ltr">+1 418 928 2650</b></span>
         </a>
+        </div>
       </div>
       <div class="contact-form">
         <form class="demo-form" id="demoForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
